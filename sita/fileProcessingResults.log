@@ -1,0 +1,41 @@
+2017-06-29 13:18:39,428 INFO  [IntegrationRegistrar] - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2017-06-29 13:18:39,631 INFO  [DefaultConfiguringBeanFactoryPostProcessor] - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2017-06-29 13:18:39,631 INFO  [DefaultConfiguringBeanFactoryPostProcessor] - No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2017-06-29 13:18:40,021 INFO  [EventDrivenConsumer] - Adding {transformer} as a subscriber to the 'filesIn' channel
+2017-06-29 13:18:40,021 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.filesIn' has 1 subscriber(s).
+2017-06-29 13:18:40,021 INFO  [EventDrivenConsumer] - started org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+2017-06-29 13:18:40,021 INFO  [EventDrivenConsumer] - Adding {router} as a subscriber to the 'output' channel
+2017-06-29 13:18:40,021 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.output' has 1 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - started org.springframework.integration.config.ConsumerEndpointFactoryBean#1
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - Adding {service-activator} as a subscriber to the 'successChannel' channel
+2017-06-29 13:18:40,022 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.successChannel' has 1 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - started org.springframework.integration.config.ConsumerEndpointFactoryBean#2
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - Adding {message-handler:writeOutputChannel.adapter} as a subscriber to the 'writeOutputChannel' channel
+2017-06-29 13:18:40,022 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.writeOutputChannel' has 1 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - started writeOutputChannel.adapter
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - Adding {message-handler:problemChannel.adapter} as a subscriber to the 'problemChannel' channel
+2017-06-29 13:18:40,022 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.problemChannel' has 1 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - started problemChannel.adapter
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-06-29 13:18:40,022 INFO  [PublishSubscribeChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.errorChannel' has 1 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - started _org.springframework.integration.errorLogger
+2017-06-29 13:18:40,022 INFO  [SourcePollingChannelAdapter] - started filesIn.adapter
+2017-06-29 13:18:40,022 INFO  [SourcePollingChannelAdapter] - stopped filesIn.adapter
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - Removing {transformer} as a subscriber to the 'filesIn' channel
+2017-06-29 13:18:40,022 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.filesIn' has 0 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - stopped org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - Removing {router} as a subscriber to the 'output' channel
+2017-06-29 13:18:40,022 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.output' has 0 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - stopped org.springframework.integration.config.ConsumerEndpointFactoryBean#1
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - Removing {service-activator} as a subscriber to the 'successChannel' channel
+2017-06-29 13:18:40,022 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.successChannel' has 0 subscriber(s).
+2017-06-29 13:18:40,022 INFO  [EventDrivenConsumer] - stopped org.springframework.integration.config.ConsumerEndpointFactoryBean#2
+2017-06-29 13:18:40,038 INFO  [EventDrivenConsumer] - Removing {message-handler:writeOutputChannel.adapter} as a subscriber to the 'writeOutputChannel' channel
+2017-06-29 13:18:40,038 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.writeOutputChannel' has 0 subscriber(s).
+2017-06-29 13:18:40,038 INFO  [EventDrivenConsumer] - stopped writeOutputChannel.adapter
+2017-06-29 13:18:40,038 INFO  [EventDrivenConsumer] - Removing {message-handler:problemChannel.adapter} as a subscriber to the 'problemChannel' channel
+2017-06-29 13:18:40,038 INFO  [DirectChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.problemChannel' has 0 subscriber(s).
+2017-06-29 13:18:40,038 INFO  [EventDrivenConsumer] - stopped problemChannel.adapter
+2017-06-29 13:18:40,038 INFO  [EventDrivenConsumer] - Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-06-29 13:18:40,038 INFO  [PublishSubscribeChannel] - Channel 'org.springframework.context.support.ClassPathXmlApplicationContext@10849bc.errorChannel' has 0 subscriber(s).
+2017-06-29 13:18:40,038 INFO  [EventDrivenConsumer] - stopped _org.springframework.integration.errorLogger
