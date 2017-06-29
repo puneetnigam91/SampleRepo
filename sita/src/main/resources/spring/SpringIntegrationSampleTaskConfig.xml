@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:i="http://www.springframework.org/schema/integration"
 	xmlns:file="http://www.springframework.org/schema/integration/file"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -26,26 +26,26 @@
 		<property name="location" value="classpath:filelocation.properties" />
 	</bean>
 
-	<!-- <file:inbound-channel-adapter id="filesIn" directory="${INPUT.DIRECTORY}" 
-		filter="onlyTextFiles" auto-startup="true"> <int:poller id="poller" fixed-delay="5" 
-		/> </file:inbound-channel-adapter> -->
+	<file:inbound-channel-adapter id="filesIn" directory="${INPUT.DIRECTORY}" 
+		filter="onlyTextFiles" auto-startup="true"> <i:poller id="poller" fixed-delay="5" />
+		</file:inbound-channel-adapter>
 
 	<file:inbound-channel-adapter channel="choose"
 		directory="${INPUT.DIRECTORY}" filter="onlyTextFiles"
 		filename-pattern="*.txt">
-		<int:poller id="poller" fixed-delay="5000"
+		<i:poller id="poller" fixed-delay="5000"
 			max-messages-per-poll="2" />
 	</file:inbound-channel-adapter>
 
-	<int:router input-channel="choose" expression="payload.length() == 0">
-		<int:mapping value="true" channel="reject" />
-		<int:mapping value="false" channel="filesIn" />
-	</int:router>
+	<i:router input-channel="choose" expression="payload.length() == 0">
+		<i:mapping value="true" channel="reject" />
+		<i:mapping value="false" channel="filesIn" />
+	</i:router>
 
-	<int:channel id="reject" />
+	<i:channel id="reject" />
 
 
-	<int:service-activator input-channel="reject"
+	<i:service-activator input-channel="reject"
 		output-channel="stdout"
 		expression="payload.renameTo(new java.io.File('/tmp/rejected/' + payload.name))" />
 	<bean id="onlyTextFiles"
@@ -55,16 +55,16 @@
 	<file:file-to-string-transformer
 		input-channel="choose" output-channel="output" charset="UTF-8" />
 
-	<int:channel id="choose" />
+	<i:channel id="choose" />
 
-	<int:router input-channel="output" ref="router" method="handleFile" />
+	<i:router input-channel="output" ref="router" method="handleFile" />
 
 	<bean id="router" class="myprj.Router">
 	</bean>
 
 
 
-	<int:service-activator input-channel="successChannel"
+	<i:service-activator input-channel="successChannel"
 		ref="messageProcesser" method="processMessage" output-channel="writeOutputChannel" />
 
 	<bean id="messageProcesser" class="myprj.MessageProcessor">
